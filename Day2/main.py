@@ -38,6 +38,8 @@ def winner_check(string):
 
 
 def follow_guide(string):
+    # part 2
+    # swap player 2 action to the one required by the guide
     p1 = string[0]
     p2 = string[2]
 
