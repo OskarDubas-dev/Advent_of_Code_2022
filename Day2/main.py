@@ -37,6 +37,30 @@ def winner_check(string):
         return 0
 
 
+def follow_guide(string):
+    p1 = string[0]
+    p2 = string[2]
+
+    if p2 == '2':
+        p2 = p1
+    elif p2 == '1':
+        if p1 == '1':
+            p2 = '3'
+        elif p1 == '2':
+            p2 = '1'
+        elif p1 == '3':
+            p2 = '2'
+    elif p2 == '3':
+        if p1 == '1':
+            p2 = '2'
+        elif p1 == '2':
+            p2 = '3'
+        elif p1 == '3':
+            p2 = '1'
+    output = f"{p1} {p2}"
+    return output
+
+
 strategy_guide = functions.get_data()
 strategy_guide_stripped = [s.strip() for s in strategy_guide]
 strategy_guide_int = []
@@ -53,4 +77,22 @@ for i in strategy_guide_int:
 # What would your total score be if everything goes
 # exactly according to your strategy guide?
 # Part 1 answer
+print(score)
+
+#  X means you need to lose,
+#  Y means you need to end the round in a draw,
+#  and Z means you need to win
+# Following the Elf's instructions for the second column,
+# what would your total score be if everything goes
+# exactly according to your strategy guide?
+# Part 2 answer
+score = 0
+strategy_guide_int_fixed = []
+for line in strategy_guide_int:
+    newline = follow_guide(line)
+    strategy_guide_int_fixed.append(newline)
+
+for i in strategy_guide_int_fixed:
+    score += int(winner_check(i))
+    score += int(i[2])
 print(score)
