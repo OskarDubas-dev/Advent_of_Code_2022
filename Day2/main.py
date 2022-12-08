@@ -63,12 +63,11 @@ def follow_guide(string):
     return output
 
 
-strategy_guide = functions.get_data()
-strategy_guide_stripped = [s.strip() for s in strategy_guide]
+strategy_guide = functions.get_data(strip=True)
 strategy_guide_int = []
 score = 0
 
-for line in strategy_guide_stripped:
+for line in strategy_guide:
     newline = f"{mixer(line[0])} {mixer(line[2])}"
     strategy_guide_int.append(newline)
 

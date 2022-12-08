@@ -1,8 +1,7 @@
 import functions
 
-elf_calories_data = functions.get_data()
-elf_calories_data_stripped = [s.strip() for s in elf_calories_data]
-elf_calories_data_int = [int(i or 0) for i in elf_calories_data_stripped]
+elf_calories_data = functions.get_data(strip=True)
+elf_calories_data_int = [int(i or 0) for i in elf_calories_data]
 elves = []
 calories = 0
 most_calories = 0
