@@ -1,16 +1,14 @@
 import functions
 
-data = str(functions.get_data())
+with open('input.txt') as file:
+    data = file.read()
 
 print(data)
 
 counter = 0
 
-print(type(data))
-
-for idx, i in enumerate(data):
-    try:
-        if(data[idx]) == 'p':
-            print("hi")
-    except:
-        print("error")
+for i in range(4, len(data)):
+    s = set(data[(i-4):i])
+    #print(s, i)
+    if len(s) == 4:
+        print(i)
